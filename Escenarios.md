@@ -4,6 +4,8 @@
 
 -[Remover columnas dinamicamente](#remover-columnas-dinamicamente)  
 -[Reemplazar varios datos de una columna](#reemplazar-varios-datos-de-una-columna)
+-[Reemplazar nombre de columnas](#reemplazar-nombre-de-columnas)
+
 ## Fórmulas
 ### Remover columnas dinamicamente
 <p align="center">
@@ -59,4 +61,29 @@ LimpiezaColumnas = Table.RemoveColumns(
     Result = ReplaceFunction(TablaFijada, Replacements)
     in
     Result,
+```
+### Reemplazar nombre de columnas
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/faaebea4-6e29-49ee-9e8c-758616ad7c29" width="700" height="300">
+</p>
+
+``` sql
+let
+    Origen = Excel.CurrentWorkbook(){[Name="Tabla1"]}[Content],
+    ColumnasOrigen = Table.FromList(Table.ColumnNames(Origen))[Column1],
+    ColumnasCambio = 
+    Table.ReplaceValue(
+        Table.FromList(
+            Table.ColumnNames(Origen)
+        ),
+        "detale (pasa)",
+        "detalle",
+        Replacer.ReplaceText,
+        {"Column1"}
+    )[Column1],
+    ListaDeCambios = List.Zip({ColumnasOrigen,ColumnasCambio}),
+    Resultado = Table.RenameColumns(Origen,ListaDeCambios)
+in
+    Resultado    
 ```
