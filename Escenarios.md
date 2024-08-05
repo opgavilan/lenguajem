@@ -3,7 +3,7 @@
 ## Indice
 
 -[Remover columnas dinamicamente](#remover-columnas-dinamicamente)  
--[Reemplazar varios datos de una columna](#reemplazar-varios-datos-de-una-columna)
+-[Reemplazar varios datos de una columna](#reemplazar-varios-datos-de-una-columna)  
 -[Reemplazar nombre de columnas](#reemplazar-nombre-de-columnas)
 
 ## Fórmulas
