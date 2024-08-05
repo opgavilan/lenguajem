@@ -65,7 +65,7 @@ LimpiezaColumnas = Table.RemoveColumns(
 ### Reemplazar nombre de columnas
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/faaebea4-6e29-49ee-9e8c-758616ad7c29" width="700" height="300">
+  <img src="https://github.com/user-attachments/assets/88012734-04b9-4165-83ea-33829c6c7162" width="700" height="300">
 </p>
 
 ``` sql
