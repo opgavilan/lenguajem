@@ -2,7 +2,7 @@
 
 ## Indice
 
--[Remover columnas dinamicamente](#remover-columnas-dinamicamente)
+-[Remover columnas dinamicamente](#remover-columnas-dinamicamente)  
 -[Reemplazar varios datos de una columna](#reemplazar-varios-datos-de-una-columna)
 ## Fórmulas
 ### Remover columnas dinamicamente
