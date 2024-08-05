@@ -10,7 +10,7 @@
   <img src="https://github.com/user-attachments/assets/b52a54b2-13ac-4c68-bcf1-28b7b346caa2" width="700" height="300">
 </p>
 
-```
+``` sql
 LimpiezaColumnas = Table.RemoveColumns(  
     TablaOrigen,  
     List.Select(  
@@ -26,7 +26,7 @@ LimpiezaColumnas = Table.RemoveColumns(
   <img src="https://github.com/user-attachments/assets/54e36002-1984-4fab-9ed4-e0375d581dbd" width="700" height="300">
 </p>
 
-```
+``` sql
 
    FuncionReemplazoColumna = 
    let
