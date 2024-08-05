@@ -1,10 +1,19 @@
 # Escenarios
 
+## Indice
+[Remover columnas dinamicamente](https://github.com/opgavilan/lenguajem/edit/main/Escenarios.md#remover-columnas-dinamicamente)
+
 ### Remover columnas dinamicamente
---![image](https://github.com/user-attachments/assets/b52a54b2-13ac-4c68-bcf1-28b7b346caa2)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b52a54b2-13ac-4c68-bcf1-28b7b346caa2" width="700" height="300">
+</p>
 
-<img src="https://github.com/user-attachments/assets/b52a54b2-13ac-4c68-bcf1-28b7b346caa2" width="200" height="200">
-
-
-`asd`  
-`asdff`
+```
+LimpiezaColumnas = Table.RemoveColumns(  
+    TablaOrigen,  
+    List.Select(  
+    Table.ColumnNames(TablaOrigen),  
+    each not (Text.Contains(_,"Observa") or Text.Contains(_,"FECHA"))  
+    )  
+)
+```
