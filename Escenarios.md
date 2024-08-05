@@ -1,8 +1,8 @@
 # Escenarios
 
 ## Indice
-[Remover columnas dinamicamente](https://github.com/opgavilan/lenguajem/edit/main/Escenarios.md#remover-columnas-dinamicamente)
-[1](#remover-columnas-dinamicamente)
+
+-[Remover columnas dinamicamente](#remover-columnas-dinamicamente)
 
 ### Remover columnas dinamicamente
 <p align="center">
