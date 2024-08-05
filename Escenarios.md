@@ -51,7 +51,7 @@ LimpiezaColumnas = Table.RemoveColumns(
                 current{0},
                 current{1},
                 Replacer.ReplaceText,
-                {"saludo"}
+                {"saludo"} // Se puede colocar diversas columnas
             )
         ),
 
