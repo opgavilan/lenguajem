@@ -4,7 +4,8 @@
 
 -[Remover columnas dinamicamente](#remover-columnas-dinamicamente)  
 -[Reemplazar varios datos de una columna](#reemplazar-varios-datos-de-una-columna)  
--[Reemplazar nombre de columnas](#reemplazar-nombre-de-columnas)
+-[Reemplazar nombre de columnas](#reemplazar-nombre-de-columnas)  
+-[Tabla Calendario](#tabla-calendario)
 
 ## Fórmulas
 ### Remover columnas dinamicamente
@@ -86,4 +87,29 @@ let
     Resultado = Table.RenameColumns(Origen,ListaDeCambios)
 in
     Resultado    
+```
+
+### Tabla Calendario
+
+``` sql
+let
+    fechaInicial = Date.FromText("01/01/2024"),
+    Calendario = Table.FromList(
+        List.Dates(fechaInicial,366,#duration(1,0,0,0)),Splitter.SplitByNothing(),null,null, ExtraValues.Error 
+    ),
+    #"Tipo cambiado" = Table.TransformColumnTypes(Calendario,{{"Column1", type date}}),
+    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado",{{"Column1", "Fecha"}}),
+    #"Mes insertado" = Table.AddColumn(#"Columnas con nombre cambiado", "Mes", each Date.Month([Fecha]), Int64.Type),
+    #"Nombre del mes insertado" = Table.AddColumn(#"Mes insertado", "Nombre del mes", each Date.MonthName([Fecha]), type text),
+    #"Año insertado" = Table.AddColumn(#"Nombre del mes insertado", "Año", each Date.Year([Fecha]), Int64.Type),
+    #"Día insertado" = Table.AddColumn(#"Año insertado", "Día", each Date.Day([Fecha]), Int64.Type),
+    PeriodoAgregado = Table.AddColumn(#"Día insertado", "PeriodoMes", each if
+        Text.Length(Text.From([Mes]))= 1
+      then
+        Text.From([Año]) &"-0"& Text.From([Mes])
+      else 
+        Text.From([Año]) &"-"& Text.From([Mes]))
+in
+    PeriodoAgregado
+
 ```
