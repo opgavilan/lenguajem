@@ -5,7 +5,8 @@
 -[Remover columnas dinamicamente](#remover-columnas-dinamicamente)  
 -[Reemplazar varios datos de una columna](#reemplazar-varios-datos-de-una-columna)  
 -[Reemplazar nombre de columnas](#reemplazar-nombre-de-columnas)  
--[Tabla Calendario](#tabla-calendario)
+-[Tabla Calendario](#tabla-calendario)  
+-[Combinar Consultas con M](#combinar-consultas-con-m)  
 
 ## Fórmulas
 ### Remover columnas dinamicamente
@@ -111,5 +112,17 @@ let
         Text.From([Año]) &"-"& Text.From([Mes]))
 in
     PeriodoAgregado
+
+```
+
+### Combinar Consultas con M
+
+```sql
+= Table.ExpandTableColumn(
+    Table.NestedJoin(#"Filas filtradas","AGENTE",dimAgente,"DNI_AGENTE","Nombre Agente",JoinKind.LeftOuter),
+    "Nombre Agente",
+    {"NOMBRE_AGENTE"}, 
+    {"NOMBRE_AGENTE"}
+  )
 
 ```
